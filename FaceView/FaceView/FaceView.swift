@@ -7,9 +7,10 @@
 //
 
 import UIKit
-//@IBDesignable
-class FaceView: UIView {
 
+@IBDesignable
+class FaceView: UIView {
+    @IBInspectable
     var scale : CGFloat = 0.9
     
     private var skullRadius : CGFloat{
@@ -19,7 +20,11 @@ class FaceView: UIView {
     private var skullCenter : CGPoint{
         return CGPoint(x: bounds.midX, y: bounds.midY)
     }
-    private var eyeOpen: Bool = false
+    @IBInspectable
+    var eyeOpen: Bool = false
+    
+    @IBInspectable
+    var mounthCurvature : CGFloat = -0.5 // full smill for 1.0, full frown for -1.0
     
     private enum Eye{
         case left
@@ -48,7 +53,26 @@ class FaceView: UIView {
         
         return path
     }
-    
+    private func pathForMounth() -> UIBezierPath{
+        let mounthWidth = skullRadius / Ratios.skullRatiosToMounthWidth
+        let mounthHeigth = skullRadius / Ratios.skullRatiosToMounthHeight
+        let mounthOffSet = skullRadius / Ratios.skullRatiosToMounthOffset
+        let mounthRect = CGRect(x: skullCenter.x - mounthWidth / 2, y: skullCenter.y + mounthOffSet, width: mounthWidth, height: mounthHeigth)
+        let start = CGPoint(x: mounthRect.minX, y: mounthRect.midY)
+        let middle1 = CGPoint(x: mounthRect.minX + mounthWidth / 3, y: mounthRect.midY + mounthCurvature * mounthHeigth)
+        let middle2 = CGPoint(x: mounthRect.minX + 2 * mounthWidth / 3, y: mounthRect.midY + mounthCurvature * mounthHeigth)
+        
+        let end = CGPoint(x: mounthRect.maxX, y: mounthRect.midY)
+        //let path =  UIBezierPath(rect: mounthRect)
+        let path =  UIBezierPath()
+        path.move(to: start)
+        path.addCurve(to: end, controlPoint1: middle1, controlPoint2: middle2)
+        path.lineWidth = 5.0
+        return path
+        
+   
+    }
+
     private func pathForSkull() -> UIBezierPath{
         let path = UIBezierPath(arcCenter: skullCenter, radius: skullRadius, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: false)
         path.lineWidth = 5.0
@@ -62,7 +86,7 @@ class FaceView: UIView {
         pathForSkull().stroke()
         pathForEye(Eye.left).stroke()
         pathForEye(Eye.right).stroke()
-
+        pathForMounth().stroke()
         //skullPath.stroke()
     
     }
@@ -70,5 +94,7 @@ class FaceView: UIView {
     private struct Ratios{
         static let skullRatiosToEyeOffset : CGFloat = 3
         static let skullRatiosToEyeRatios : CGFloat = 10
-    }
+        static let skullRatiosToMounthOffset : CGFloat = 3
+        static let skullRatiosToMounthWidth : CGFloat = 1.5
+        static let skullRatiosToMounthHeight : CGFloat = 6   }
 }
