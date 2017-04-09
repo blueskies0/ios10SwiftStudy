@@ -24,7 +24,7 @@ class FaceView: UIView {
     var eyeOpen: Bool = false
     
     @IBInspectable
-    var mounthCurvature : CGFloat = -0.5 // full smill for 1.0, full frown for -1.0
+    var mouthCurvature : CGFloat = -0.5 // full smill for 1.0, full frown for -1.0
     
     private enum Eye{
         case left
@@ -53,17 +53,17 @@ class FaceView: UIView {
         
         return path
     }
-    private func pathForMounth() -> UIBezierPath{
-        let mounthWidth = skullRadius / Ratios.skullRatiosToMounthWidth
-        let mounthHeigth = skullRadius / Ratios.skullRatiosToMounthHeight
-        let mounthOffSet = skullRadius / Ratios.skullRatiosToMounthOffset
-        let mounthRect = CGRect(x: skullCenter.x - mounthWidth / 2, y: skullCenter.y + mounthOffSet, width: mounthWidth, height: mounthHeigth)
-        let start = CGPoint(x: mounthRect.minX, y: mounthRect.midY)
-        let middle1 = CGPoint(x: mounthRect.minX + mounthWidth / 3, y: mounthRect.midY + mounthCurvature * mounthHeigth)
-        let middle2 = CGPoint(x: mounthRect.minX + 2 * mounthWidth / 3, y: mounthRect.midY + mounthCurvature * mounthHeigth)
+    private func pathForMouth() -> UIBezierPath{
+        let mouthWidth = skullRadius / Ratios.skullRatiosToMouthWidth
+        let mouthHeigth = skullRadius / Ratios.skullRatiosToMouthHeight
+        let mouthOffSet = skullRadius / Ratios.skullRatiosToMouthOffset
+        let mouthRect = CGRect(x: skullCenter.x - mouthWidth / 2, y: skullCenter.y + mouthOffSet, width: mouthWidth, height: mouthHeigth)
+        let start = CGPoint(x: mouthRect.minX, y: mouthRect.midY)
+        let middle1 = CGPoint(x: mouthRect.minX + mouthWidth / 3, y: mouthRect.midY + mouthCurvature * mouthHeigth)
+        let middle2 = CGPoint(x: mouthRect.minX + 2 * mouthWidth / 3, y: mouthRect.midY + mouthCurvature * mouthHeigth)
         
-        let end = CGPoint(x: mounthRect.maxX, y: mounthRect.midY)
-        //let path =  UIBezierPath(rect: mounthRect)
+        let end = CGPoint(x: mouthRect.maxX, y: mouthRect.midY)
+        //let path =  UIBezierPath(rect: mouthRect)
         let path =  UIBezierPath()
         path.move(to: start)
         path.addCurve(to: end, controlPoint1: middle1, controlPoint2: middle2)
@@ -86,7 +86,7 @@ class FaceView: UIView {
         pathForSkull().stroke()
         pathForEye(Eye.left).stroke()
         pathForEye(Eye.right).stroke()
-        pathForMounth().stroke()
+        pathForMouth().stroke()
         //skullPath.stroke()
     
     }
@@ -94,7 +94,7 @@ class FaceView: UIView {
     private struct Ratios{
         static let skullRatiosToEyeOffset : CGFloat = 3
         static let skullRatiosToEyeRatios : CGFloat = 10
-        static let skullRatiosToMounthOffset : CGFloat = 3
-        static let skullRatiosToMounthWidth : CGFloat = 1.5
-        static let skullRatiosToMounthHeight : CGFloat = 6   }
+        static let skullRatiosToMouthOffset : CGFloat = 3
+        static let skullRatiosToMouthWidth : CGFloat = 1.5
+        static let skullRatiosToMouthHeight : CGFloat = 6   }
 }
