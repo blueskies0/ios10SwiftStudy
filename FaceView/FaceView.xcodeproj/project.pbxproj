@@ -13,6 +13,7 @@
 		2D8E86DE1E896BF9000D56B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D8E86DD1E896BF9000D56B2 /* Assets.xcassets */; };
 		2D8E86E11E896BF9000D56B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D8E86DF1E896BF9000D56B2 /* LaunchScreen.storyboard */; };
 		2D8E86E91E896DB7000D56B2 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8E86E81E896DB7000D56B2 /* FaceView.swift */; };
+		2DEDF9931EA8C27C00DA4245 /* FacialExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEDF9921EA8C27C00DA4245 /* FacialExpression.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2D8E86E01E896BF9000D56B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D8E86E21E896BF9000D56B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D8E86E81E896DB7000D56B2 /* FaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
+		2DEDF9921EA8C27C00DA4245 /* FacialExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialExpression.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		2D8E86D51E896BF9000D56B2 /* FaceView */ = {
 			isa = PBXGroup;
 			children = (
+				2DEDF9921EA8C27C00DA4245 /* FacialExpression.swift */,
 				2D8E86D61E896BF9000D56B2 /* AppDelegate.swift */,
 				2D8E86D81E896BF9000D56B2 /* ViewController.swift */,
 				2D8E86DA1E896BF9000D56B2 /* Main.storyboard */,
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D8E86D91E896BF9000D56B2 /* ViewController.swift in Sources */,
+				2DEDF9931EA8C27C00DA4245 /* FacialExpression.swift in Sources */,
 				2D8E86D71E896BF9000D56B2 /* AppDelegate.swift in Sources */,
 				2D8E86E91E896DB7000D56B2 /* FaceView.swift in Sources */,
 			);
@@ -303,6 +307,7 @@
 				2D8E86E71E896BF9000D56B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

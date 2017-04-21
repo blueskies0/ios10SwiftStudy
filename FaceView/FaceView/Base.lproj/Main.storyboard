@@ -30,7 +30,10 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="scale">
-                                        <real key="value" value="0.59999999999999998"/>
+                                        <real key="value" value="0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="mouthCurvature">
+                                        <real key="value" value="0.5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -43,6 +46,9 @@
                             <constraint firstItem="UeN-9q-fDs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xk6-hp-hzy"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="faceViewer" destination="UeN-9q-fDs" id="4Za-vf-gBJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
